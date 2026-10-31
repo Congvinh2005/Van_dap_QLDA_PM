@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PM Study — Ôn thi Quản lý dự án phần mềm</title>
+  <meta name="description" content="Ôn tập Quản lý dự án phần mềm theo 8 module liên kết chủ đề: 38 câu hỏi, tiến độ học, flashcard và ghi chú cá nhân.">
+  <meta name="theme-color" content="#f6f4ee">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('pmstudy.theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
+
+  <div class="app">
+    <div class="sidebar-scrim" id="sidebar-scrim" data-action="close-sidebar" hidden></div>
+
+    <aside class="sidebar" id="sidebar" aria-label="Điều hướng chính">
+      <a class="brand" href="#/" aria-label="PM Study — về trang tổng quan">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6.5 12 3l8 3.5-8 3.5-8-3.5Z"/>
+            <path d="m4 12 8 3.5 8-3.5"/>
+            <path d="m4 17.5 8 3.5 8-3.5"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <strong>PM Study</strong>
+          <span>Quản lý dự án phần mềm</span>
+        </span>
+      </a>
+
+      <nav class="sidebar-nav" id="sidebar-nav"></nav>
+      <div class="sidebar-footer" id="sidebar-footer"></div>
+    </aside>
+
+    <div class="main-column">
+      <header class="topbar">
+        <button class="icon-btn menu-btn" type="button" data-action="open-sidebar" aria-label="Mở menu" aria-controls="sidebar" aria-expanded="false">
+          <span data-icon="menu"></span>
+        </button>
+
+        <div class="topbar-context" id="topbar-context"></div>
+
+        <div class="topbar-actions">
+          <span class="topbar-progress" id="topbar-progress" title="Số câu đã học"></span>
+          <button class="search-trigger" type="button" data-action="open-search" aria-label="Tìm kiếm câu hỏi">
+            <span data-icon="search"></span>
+            <span class="search-trigger-label">Tìm câu hỏi, khái niệm…</span>
+            <kbd class="search-kbd" data-shortcut>⌘K</kbd>
+          </button>
+          <button class="icon-btn" type="button" data-action="toggle-theme" aria-label="Đổi chế độ sáng tối" id="theme-btn">
+            <span data-icon="moon"></span>
+          </button>
+        </div>
+      </header>
+
+      <main class="view" id="main-content" tabindex="-1">
+        <div id="view-root"></div>
+      </main>
+    </div>
+  </div>
+
+  <div class="search-overlay" id="search-overlay" hidden>
+    <div class="overlay-backdrop" data-action="close-search"></div>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-label="Tìm kiếm câu hỏi">
+      <div class="search-input-row">
+        <span class="search-input-icon" data-icon="search"></span>
+        <input type="search" id="search-input" placeholder="Tìm theo tiêu đề, nội dung hoặc chủ đề…" autocomplete="off" spellcheck="false" aria-label="Nội dung tìm kiếm">
+        <button class="icon-btn small" type="button" data-action="close-search" aria-label="Đóng tìm kiếm">
+          <span data-icon="x"></span>
+        </button>
+      </div>
+      <div class="search-results" id="search-results"></div>
+      <div class="search-footer">
+        <span><kbd>↑</kbd><kbd>↓</kbd> di chuyển</span>
+        <span><kbd>↵</kbd> mở</span>
+        <span><kbd>esc</kbd> đóng</span>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal-overlay" id="modal-overlay" hidden>
+    <div class="overlay-backdrop" data-action="close-modal"></div>
+    <section class="modal-card" id="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title"></section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

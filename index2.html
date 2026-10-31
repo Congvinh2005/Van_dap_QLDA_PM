@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thi thử 7 phút — PM Study</title>
+  <meta name="description" content="Tạo bộ đề ngẫu nhiên từ 38 câu hỏi Quản lý dự án phần mềm và trả lời trong 7 phút với đồng hồ đếm ngược.">
+  <meta name="theme-color" content="#f6f4ee">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/exam.css">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('pmstudy.theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body class="exam-page">
+  <a class="skip-link" href="#exam-root">Bỏ qua điều hướng</a>
+
+  <div class="exam-shell">
+    <header class="exam-header">
+      <div class="exam-header-inner">
+        <a class="brand exam-brand" href="index.html" aria-label="PM Study — về trang ôn tập">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 6.5 12 3l8 3.5-8 3.5-8-3.5Z"/>
+              <path d="m4 12 8 3.5 8-3.5"/>
+              <path d="m4 17.5 8 3.5 8-3.5"/>
+            </svg>
+          </span>
+          <span class="brand-text">
+            <strong>PM Study</strong>
+            <span>Thi thử 7 phút</span>
+          </span>
+        </a>
+
+        <div class="exam-header-actions">
+          <a class="exam-back-link" href="index.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M19 12H5"/><path d="m11 6-6 6 6 6"/>
+            </svg>
+            <span>Ôn tập</span>
+          </a>
+          <button class="icon-btn" type="button" data-action="toggle-theme" aria-label="Đổi chế độ sáng tối" id="theme-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="exam-main" id="exam-root" tabindex="-1">
+      <noscript>
+        <div class="exam-noscript">
+          <h1>Cần bật JavaScript</h1>
+          <p>Trang thi thử dùng JavaScript để tạo đề ngẫu nhiên và chạy đồng hồ đếm ngược.</p>
+        </div>
+      </noscript>
+    </main>
+
+    <footer class="exam-footer">
+      <div class="exam-footer-inner">
+        <span>38 câu hỏi · 8 module · 7 phút mỗi lượt</span>
+        <a href="index.html">Quay lại thư viện ôn tập</a>
+      </div>
+    </footer>
+  </div>
+
+  <div class="modal-overlay" id="modal-overlay" hidden>
+    <div class="overlay-backdrop" data-action="close-modal"></div>
+    <section class="modal-card exam-modal" id="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title"></section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/exam-data.js"></script>
+  <script src="assets/exam.js"></script>
+</body>
+</html>
